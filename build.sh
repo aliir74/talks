@@ -2,6 +2,14 @@
 # Build all decks under decks/* into a unified dist/ with a landing page.
 set -euo pipefail
 
+# Vercel ships an old pnpm bundled with Node 22 that crashes with
+# "Value of 'this' must be of type URLSearchParams". Corepack fetches
+# a working version. Locally this is a no-op if pnpm is already on PATH.
+if command -v corepack > /dev/null 2>&1; then
+  corepack enable > /dev/null 2>&1 || true
+  corepack prepare pnpm@10.16.0 --activate > /dev/null 2>&1 || true
+fi
+
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 DIST="$ROOT/dist"
 DECKS_DIR="$ROOT/decks"
