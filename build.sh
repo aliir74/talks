@@ -2,12 +2,13 @@
 # Build all decks under decks/* into a unified dist/ with a landing page.
 set -euo pipefail
 
-# Vercel ships an old pnpm bundled with Node 22 that crashes with
-# "Value of 'this' must be of type URLSearchParams". Corepack fetches
-# a working version. Locally this is a no-op if pnpm is already on PATH.
-if command -v corepack > /dev/null 2>&1; then
-  corepack enable > /dev/null 2>&1 || true
-  corepack prepare pnpm@10.16.0 --activate > /dev/null 2>&1 || true
+# Vercel's bundled pnpm crashes on Node 22 ("Value of 'this' must be of type
+# URLSearchParams"). Pin to a known-good version via npx so it works on both
+# local machines (uses the project's pnpm if available) and Vercel.
+if [ "${VERCEL:-}" = "1" ]; then
+  PNPM="npx --yes pnpm@10.16.0"
+else
+  PNPM="pnpm"
 fi
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
@@ -28,10 +29,10 @@ for deck_path in "$DECKS_DIR"/*/; do
   pushd "$deck_path" > /dev/null
 
   if [ ! -d node_modules ]; then
-    pnpm install
+    $PNPM install
   fi
 
-  pnpm build --base "/$slug/"
+  $PNPM build --base "/$slug/"
 
   if [ ! -f dist/index.html ]; then
     echo "ERROR: $slug build did not produce dist/index.html" >&2
