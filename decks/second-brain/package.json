@@ -1,0 +1,14 @@
+{
+  "name": "second-brain",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^51.0.0",
+    "@slidev/theme-apple-basic": "latest",
+    "@slidev/theme-default": "^0.25.0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "talks",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Ali Irani's talks — multi-deck slidev monorepo, deployed at talks.aliirani.com",
+  "scripts": {
+    "build": "bash build.sh",
+    "dev": "echo 'cd into decks/<slug> and run pnpm dev'"
+  }
+}
