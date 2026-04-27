@@ -39,7 +39,9 @@ for deck_path in "$DECKS_DIR"/*/; do
     exit 1
   fi
 
-  rsync -a --delete dist/ "$DIST/$slug/"
+  rm -rf "$DIST/$slug"
+  mkdir -p "$DIST/$slug"
+  cp -R dist/. "$DIST/$slug/"
 
   # Extract title from slides.md frontmatter (first `title:` line in the YAML block).
   title=$(awk '
