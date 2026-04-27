@@ -20,10 +20,10 @@ for deck_path in "$DECKS_DIR"/*/; do
   pushd "$deck_path" > /dev/null
 
   if [ ! -d node_modules ]; then
-    pnpm install --silent
+    pnpm install
   fi
 
-  pnpm build --base "/$slug/" > /dev/null
+  pnpm build --base "/$slug/"
 
   if [ ! -f dist/index.html ]; then
     echo "ERROR: $slug build did not produce dist/index.html" >&2
