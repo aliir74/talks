@@ -4,5 +4,8 @@
   "outputDirectory": "dist",
   "framework": null,
   "trailingSlash": true,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/:slug/:path*", "destination": "/:slug/index.html" }
+  ]
 }
