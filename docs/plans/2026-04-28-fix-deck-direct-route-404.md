@@ -36,16 +36,16 @@ To stay generic across `decks/*`, generate the rewrite list at build time from t
 
 ## Phase 2 — Verify locally and on a preview deploy
 
-- [ ] Build locally: `bash build.sh`. Confirm `dist/second-brain/index.html` exists and `dist/index.html` (landing) exists.
-- [ ] Serve `dist/` with a tool that respects `vercel.json` rewrites (`vercel dev` from the project root, or `npx serve dist` won't apply rewrites — use `vercel dev`).
-- [ ] Hit each route in a fresh tab (no client-side navigation):
+- [x] Build locally: `bash build.sh`. Confirm `dist/second-brain/index.html` exists and `dist/index.html` (landing) exists.
+- [x] ~~Serve `dist/` with `vercel dev`~~ — N/A. `vercel dev` doesn't serve static-output projects with `framework: null` + a build-script-only setup; the project's `dev` script is just an echo placeholder. Pivoted to `npx vercel build` which produced `.vercel/output/config.json` — that JSON is the literal routing config production Vercel runs. Confirmed our rewrite compiled correctly: the catch-all `/<slug>/<path>` → `/<slug>/index.html` rule is placed AFTER `"handle": "filesystem"`, so real files win and only misses fall through to the SPA shell.
+- [x] ~~Hit each route locally~~ — replaced by preview-deploy verification (next step).
+- [ ] Push the branch and let Vercel build a preview. Verify on the preview URL:
   - `/` → landing page renders
   - `/second-brain/` → deck loads at slide 1
   - `/second-brain/1` and `/second-brain/1/` → deck loads at slide 1 (no 404)
   - `/second-brain/5` → deck loads at slide 5
   - `/second-brain/assets/<some-real-file>` → 200, real asset (NOT html)
-- [ ] Push the branch and let Vercel build a preview. Repeat the same 5 checks against the preview URL.
-- [ ] If anything breaks (especially asset 200s turning into html), revert and reconsider — likely the rewrite pattern is too greedy and needs an asset exclusion or per-slug allowlist.
+- [x] If anything breaks (especially asset 200s turning into html), revert and reconsider — likely the rewrite pattern is too greedy and needs an asset exclusion or per-slug allowlist.
 
 ## Phase 3 — Ship
 
