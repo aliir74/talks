@@ -39,7 +39,7 @@ To stay generic across `decks/*`, generate the rewrite list at build time from t
 - [x] Build locally: `bash build.sh`. Confirm `dist/second-brain/index.html` exists and `dist/index.html` (landing) exists.
 - [x] ~~Serve `dist/` with `vercel dev`~~ — N/A. `vercel dev` doesn't serve static-output projects with `framework: null` + a build-script-only setup; the project's `dev` script is just an echo placeholder. Pivoted to `npx vercel build` which produced `.vercel/output/config.json` — that JSON is the literal routing config production Vercel runs. Confirmed our rewrite compiled correctly: the catch-all `/<slug>/<path>` → `/<slug>/index.html` rule is placed AFTER `"handle": "filesystem"`, so real files win and only misses fall through to the SPA shell.
 - [x] ~~Hit each route locally~~ — replaced by preview-deploy verification (next step).
-- [ ] Push the branch and let Vercel build a preview. Verify on the preview URL:
+- [x] Push the branch and let Vercel build a preview. Verify on the preview URL:
   - `/` → landing page renders
   - `/second-brain/` → deck loads at slide 1
   - `/second-brain/1` and `/second-brain/1/` → deck loads at slide 1 (no 404)
@@ -49,8 +49,8 @@ To stay generic across `decks/*`, generate the rewrite list at build time from t
 
 ## Phase 3 — Ship
 
-- [ ] Commit with a single concise message (lowercase title, body explaining the SPA-fallback rationale).
-- [ ] Open PR to `main`. PR description should include: the symptom (404 on direct `/second-brain/1`), the root cause (no SPA fallback), and the manual verification checklist results.
+- [x] Commit with a single concise message (lowercase title, body explaining the SPA-fallback rationale).
+- [x] Open PR to `main`. PR description should include: the symptom (404 on direct `/second-brain/1`), the root cause (no SPA fallback), and the manual verification checklist results.
 - [ ] After merge, verify against production (`https://talks.aliirani.com/second-brain/1`) loads fine cold.
 
 ---
