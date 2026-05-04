@@ -1,0 +1,146 @@
+/* Context Engineering — clean, minimal, typography-first.
+   Matches second-brain deck: teal accent (#0d9488), Inter, same component vocabulary. */
+
+.slidev-layout {
+  background: #ffffff !important;
+  color: #111827 !important;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif !important;
+}
+
+.slidev-layout h1 {
+  color: #111827 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.15 !important;
+}
+
+/* Accent bar on left for section headers */
+.section-header {
+  border-left: 4px solid #0d9488;
+  padding-left: 1rem;
+}
+
+/* Indigo accent for emphasis (Dev/AI) */
+.accent { color: #0d9488; }
+.dim { color: #6b7280; }
+.warn { color: #d97706; }
+.bad { color: #dc2626; }
+
+/* Simple horizontal rule */
+.rule {
+  width: 40px;
+  height: 2px;
+  background: #0d9488;
+  border-radius: 1px;
+  margin: 1rem 0;
+}
+
+/* Plain story block */
+.story {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: #374151;
+}
+
+/* Highlight callout */
+.callout {
+  border-left: 3px solid #0d9488;
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: #111827;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Numbered item row */
+.item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+.item-num {
+  min-width: 1.5rem;
+  font-weight: 600;
+  color: #0d9488;
+  font-size: 1.1rem;
+}
+
+/* Comparison labels */
+.compare-label-red {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ef4444;
+  margin-bottom: 0.5rem;
+}
+.compare-label-green {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0d9488;
+  margin-bottom: 0.5rem;
+}
+.compare-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #374151;
+}
+
+/* Context window anatomy bar */
+.context-bar {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.context-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* Quote block */
+.quote {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #111827;
+  font-weight: 500;
+  border-left: 3px solid #0d9488;
+  padding-left: 1.25rem;
+  margin: 1rem 0;
+}
+.quote-attr {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+/* Center layout override */
+.slidev-layout.center {
+  background: #ffffff !important;
+}
+
+/* Small label tag */
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0d9488;
+  background: #ccfbf1;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
