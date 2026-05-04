@@ -67,10 +67,10 @@ Source: [[Knowledge/Research/2026-05-04-context-engineering-talk|2026-05-04 rese
 
 ## Phase 3 — Polish, build, deploy
 
-- [ ] **Visual polish.** Verify minimal design (clean lines, limited color palette — match `second-brain` deck's aesthetic). Use Apple HIG iOS system colors per vault preferences if accents needed (Indigo `#5856d6` for Dev/AI, Mint `#00c7be` for Mgmt). Avoid emoji unless adding intentionally.
-- [ ] **Speaker notes.** Add `<!-- speaker note -->` blocks on every content slide with what to actually say — Ali tends to skip rehearsal, so written notes are the safety net.
+- [x] **Visual polish.** Verify minimal design (clean lines, limited color palette — match `second-brain` deck's aesthetic). Use Apple HIG iOS system colors per vault preferences if accents needed (Indigo `#5856d6` for Dev/AI, Mint `#00c7be` for Mgmt). Avoid emoji unless adding intentionally.
+- [x] **Speaker notes.** Add `<!-- speaker note -->` blocks on every content slide with what to actually say — Ali tends to skip rehearsal, so written notes are the safety net.
 - [ ] **Rehearse + time once.** Read through with a phone timer. If over 10 min, cut Slide 6 (merge into Slide 5) or trim Slide 8 to a one-liner. If under 7, expand the "Hi" example with a real screenshot from Ali's own chat.
-- [ ] **Build the full repo.** `cd ~/Downloads/Coding/personal/talks && pnpm build` — verify `dist/context-engineering/` builds and lands on the landing page. Verify the second-brain deck still works (no regressions in build.sh stitching).
+- [x] **Build the full repo.** `cd ~/Downloads/Coding/personal/talks && pnpm build` — verify `dist/context-engineering/` builds and lands on the landing page. Verify the second-brain deck still works (no regressions in build.sh stitching).
 - [ ] **Commit + push.** Two commits ideally: `feat(context-engineering): polish + speaker notes` and `feat: deploy context-engineering deck`. Push triggers Vercel auto-rebuild → talks.aliirani.com/context-engineering/.
 - [ ] **Verify deploy.** Open talks.aliirani.com/context-engineering/ in a browser, click through every slide, confirm fonts/transitions render correctly on Vercel.
 - [ ] **Slack confirm with Reza.** Reply in the DM thread with the deployed URL: "Deck ready — talks.aliirani.com/context-engineering/. Will run through it on Tuesday." Use the `slack-cli` skill, do not send without showing the draft first.
