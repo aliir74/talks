@@ -38,30 +38,30 @@ Source: [[Knowledge/Research/2026-05-04-context-engineering-talk|2026-05-04 rese
 
 ## Phase 2 — Write slide content + visuals
 
-- [ ] **Slide 2 (the problem):** Open with a question the team has actually asked. One sentence + a screenshot of a long bloated chat. Hook: "This is happening to most of us."
-- [ ] **Slide 3 (the shift):** Karpathy quote in full. Side-by-side: "Prompt engineering = clever instruction" vs "Context engineering = the delicate art of filling the context window with just the right information." Sub-line: "Most agent failures are not model failures anymore — they are context failures." (Schmid)
-- [ ] **Slide 4 (anatomy of context):** Visual diagram of the context window with labeled slices — System Prompt / Conversation History / Memory / Retrieved Docs / Tools / Tool Results / User Prompt. Make the user prompt visually tiny (~1% of the bar).
-- [ ] **Slide 5 (the "Hi" example):** Two screenshots side-by-side. Left: blank chat → "Hi" → AI says "Hello, how can I help?" Right: same "Hi" in a project with memory + files + tool results loaded → AI references your past work. Caption: "Same prompt. Same model. Completely different usefulness."
-- [ ] **Slide 6 (too little hurts):** Schmid's calendar example. AI without calendar context → "I don't have a calendar." With calendar + emails + timezone → "Thursday 10 AM works." One slide.
-- [ ] **Slide 7 (too much hurts):** Three numbered findings as bullets:
+- [x] **Slide 2 (the problem):** Open with a question the team has actually asked. One sentence + a screenshot of a long bloated chat. Hook: "This is happening to most of us."
+- [x] **Slide 3 (the shift):** Karpathy quote in full. Side-by-side: "Prompt engineering = clever instruction" vs "Context engineering = the delicate art of filling the context window with just the right information." Sub-line: "Most agent failures are not model failures anymore — they are context failures." (Schmid)
+- [x] **Slide 4 (anatomy of context):** Visual diagram of the context window with labeled slices — System Prompt / Conversation History / Memory / Retrieved Docs / Tools / Tool Results / User Prompt. Make the user prompt visually tiny (~1% of the bar).
+- [x] **Slide 5 (the "Hi" example):** Two screenshots side-by-side. Left: blank chat → "Hi" → AI says "Hello, how can I help?" Right: same "Hi" in a project with memory + files + tool results loaded → AI references your past work. Caption: "Same prompt. Same model. Completely different usefulness."
+- [x] **Slide 6 (too little hurts):** Schmid's calendar example. AI without calendar context → "I don't have a calendar." With calendar + emails + timezone → "Thursday 10 AM works." One slide.
+- [x] **Slide 7 (too much hurts):** Three numbered findings as bullets:
   - **Lost in the Middle** — Liu et al., performance is U-shaped (best at start/end, worst in middle).
   - **Context Rot** — Chroma tested 18 frontier models, *all* degrade as input grows, even before the window is full.
   - **39% multi-turn drop** — Microsoft + Salesforce, May 2025: "when models made wrong assumptions early, they rarely corrected themselves."
   - Bottom line: bloated history, stale memory, contradicting instructions ("follow A → ignore A, follow B") = recipe for hallucinations.
-- [ ] **Slide 8 (Claude vs ChatGPT):** Comparison table:
+- [x] **Slide 8 (Claude vs ChatGPT):** Comparison table:
   - **ChatGPT memory** = silent auto-injection, AI-decided summaries, lower-maintenance, less auditable.
   - **Claude memory** = visible tool calls, user-editable, transparent.
   - **Both** auto-synthesize now (since March 2 2026 for Claude). Old "Claude is fully manual" framing is outdated.
   - Tool-specific tips: Claude.ai Projects > plain chat; ChatGPT project-only memory mode (Aug 22 2025) keeps things scoped.
-- [ ] **Slide 9 (practical habits — the take-home):** 5 rules, big and bold:
+- [x] **Slide 9 (practical habits — the take-home):** 5 rules, big and bold:
   1. **One topic per chat.** Switching topics mid-chat is the #1 cause of bad output.
   2. **Front-load what matters.** Put the most important info at the top OR bottom (U-curve).
   3. **Prune memory + custom instructions monthly.** Stale or contradicting rules = hallucinations.
   4. **Use Projects for recurring work.** Per-project instructions + files beat re-typing context every chat.
   5. **Edit memory, don't trust it blindly.** Both ChatGPT and Claude let you view/edit/delete — do it.
-- [ ] **Slide 10 (negative prompts bonus):** Wegner's white bear (1987) — tell people "don't think of a white bear" and they think of one more. Ski instructors don't say "don't fall" — they say "look where you want to go." Same with AI: Anthropic's official guidance is *"Tell Claude what to do instead of what not to do."* Show before/after: "Don't use markdown" → "Respond in flowing prose paragraphs." Flag honestly: human ironic process and LLM negative prompting have different mechanisms but the same outcome — positive framing is more reliable.
-- [ ] **Slide 11 (closing):** "Your AI is only as good as the context you give it. Curate it like you'd brief a new hire on Day 1." Optional: list of links — research file, Anthropic context engineering post, Karpathy tweet.
-- [ ] **Verify:** Run `pnpm dev`, walk through end-to-end, time yourself with a phone timer — confirm under 10 min including pauses for questions. Aim for ~8 min content + 2 min Q&A buffer. Commit: `feat(context-engineering): write slide content`.
+- [x] **Slide 10 (negative prompts bonus):** Wegner's white bear (1987) — tell people "don't think of a white bear" and they think of one more. Ski instructors don't say "don't fall" — they say "look where you want to go." Same with AI: Anthropic's official guidance is *"Tell Claude what to do instead of what not to do."* Show before/after: "Don't use markdown" → "Respond in flowing prose paragraphs." Flag honestly: human ironic process and LLM negative prompting have different mechanisms but the same outcome — positive framing is more reliable.
+- [x] **Slide 11 (closing):** "Your AI is only as good as the context you give it. Curate it like you'd brief a new hire on Day 1." Optional: list of links — research file, Anthropic context engineering post, Karpathy tweet.
+- [x] **Verify:** Run `pnpm dev`, walk through end-to-end, time yourself with a phone timer — confirm under 10 min including pauses for questions. Aim for ~8 min content + 2 min Q&A buffer. Commit: `feat(context-engineering): write slide content`.
 
 ---
 
