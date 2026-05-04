@@ -24,7 +24,7 @@ created: 2026-05-04
 | 7 | Too much context | ~1.5 min | Three findings. Bottom line: hallucinations. |
 | 8 | Claude vs ChatGPT memory | ~1 min | Both auto-sync now. Use Projects. |
 | 9 | 5 habits to take home | ~1.5 min | The takeaway. Slow down here. |
-| 10 | Bonus: tell it what to do | ~45s | White bear. Reza asked for this. |
+| 10 | Bonus: tell it what to do | ~45s | White bear. (Q&A request from a teammate.) |
 | 11 | Closing | ~30s | "Brief it like a new hire." Q&A. |
 
 Total: ~9.5 min content + buffer for questions.
@@ -93,7 +93,7 @@ Walk through each one:
 5. **Edit memory, don't trust it blindly.** "Both tools let you view and edit the saved memory. Actually do it. The AI's idea of 'what's important' is not always yours."
 
 ### 10. Bonus: tell it what to do
-"Quick one Reza asked about. Daniel Wegner, 1987 — tell people 'don't think of a white bear' and they think of one more. Ski instructors don't say 'don't fall' — they say 'look where you want to go.'"
+"Quick one a teammate asked about. Daniel Wegner, 1987 — tell people 'don't think of a white bear' and they think of one more. Ski instructors don't say 'don't fall' — they say 'look where you want to go.'"
 
 "Same with AI. 'Don't use markdown' is worse than 'respond in flowing paragraphs.' Anthropic's own guidance: tell it what to do instead of what not to do."
 

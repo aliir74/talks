@@ -34,8 +34,8 @@ title: The problem
     <span class="accent">worse</span> the longer it gets?
   </p>
   <div class="rule" style="margin: 1.25rem auto;"></div>
-  <div style="display: grid; grid-template-columns: 150px 460px; gap: 0; align-items: stretch; justify-content: center; margin-top: 1.5rem;">
-    <img src="./meme-drake.jpg" style="height: 220px; width: 150px; object-fit: cover; object-position: 25% center; border-radius: 8px 0 0 8px;" />
+  <div style="display: grid; grid-template-columns: 110px 500px; gap: 0; align-items: stretch; justify-content: center; margin-top: 1.5rem;">
+    <img src="./meme-drake.jpg" style="height: 220px; width: 110px; object-fit: cover; border-radius: 8px 0 0 8px;" />
     <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 0;">
       <div style="display: flex; align-items: center; padding: 0.6rem 1rem; background: #fef2f2; border-left: 3px solid #ef4444; border-radius: 0 8px 0 0;">
         <span style="font-weight: 600; color: #111827;">Starting a fresh chat</span>
