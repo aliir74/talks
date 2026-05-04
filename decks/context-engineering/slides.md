@@ -25,19 +25,27 @@ Calm. Casual. Today: why our AI chats sometimes feel magical and sometimes usele
 
 ---
 layout: center
+title: The problem
 ---
 
-<div style="max-width: 760px; margin: 0 auto; text-align: center;">
-  <p style="font-size: 2rem; font-weight: 600; line-height: 1.45; color: #111827;">
+<div style="max-width: 880px; margin: 0 auto;">
+  <p style="font-size: 1.9rem; font-weight: 600; line-height: 1.45; color: #111827; text-align: center;">
     Why does my AI chat get<br>
     <span class="accent">worse</span> the longer it gets?
   </p>
-  <div class="rule" style="margin: 1.5rem auto;"></div>
-  <p class="dim" style="font-size: 1.15rem; line-height: 1.7;">
-    You start strong. By message 30 it's forgetting things,<br>
-    repeating itself, or just&hellip; missing the point.
-  </p>
-  <p style="font-size: 1.1rem; font-weight: 600; color: #5856d6; margin-top: 1.5rem;">
+  <div class="rule" style="margin: 1.25rem auto;"></div>
+  <div style="display: grid; grid-template-columns: 150px 460px; gap: 0; align-items: stretch; justify-content: center; margin-top: 1.5rem;">
+    <img src="./meme-drake.jpg" style="height: 220px; width: 150px; object-fit: cover; object-position: 25% center; border-radius: 8px 0 0 8px;" />
+    <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 0;">
+      <div style="display: flex; align-items: center; padding: 0.6rem 1rem; background: #fef2f2; border-left: 3px solid #ef4444; border-radius: 0 8px 0 0;">
+        <span style="font-weight: 600; color: #111827;">Starting a fresh chat</span>
+      </div>
+      <div style="display: flex; align-items: center; padding: 0.6rem 1rem; background: #ccfbf1; border-left: 3px solid #0d9488; border-radius: 0 0 8px 0;">
+        <span style="font-weight: 600; color: #111827;">Forcing a 200-message thread to behave</span>
+      </div>
+    </div>
+  </div>
+  <p style="font-size: 1.05rem; font-weight: 600; color: #0d9488; margin-top: 1.5rem; text-align: center;">
     This is happening to most of us.
   </p>
 </div>
@@ -46,6 +54,8 @@ layout: center
 Open with the question the team has actually asked. Pause. Let it land. "Raise your hand if a long ChatGPT or Claude chat has ever gotten worse the longer you used it." Then transition: it's not the model — it's the context.
 -->
 
+---
+title: Prompt → Context Engineering
 ---
 
 <div class="section-header">
@@ -76,6 +86,8 @@ Andrej Karpathy and Tobi Lütke (Shopify CEO) both started using "context engine
 -->
 
 ---
+title: Anatomy of the context window
+---
 
 <div class="section-header">
   <h1>What's actually in the context window</h1>
@@ -84,27 +96,30 @@ Andrej Karpathy and Tobi Lütke (Shopify CEO) both started using "context engine
 <p class="dim" style="margin-top: 0.5rem; margin-bottom: 1.75rem;">Everything below gets sent to the model on every message — not just what you typed.</p>
 
 <div class="context-bar">
-  <div class="context-seg" style="background: #1e3a8a; flex: 14;">System<br>Prompt</div>
-  <div class="context-seg" style="background: #2563eb; flex: 28;">Conversation History</div>
-  <div class="context-seg" style="background: #5856d6; flex: 14;">Memory</div>
-  <div class="context-seg" style="background: #7c3aed; flex: 14;">Retrieved<br>Docs / Files</div>
-  <div class="context-seg" style="background: #9333ea; flex: 12;">Tools</div>
-  <div class="context-seg" style="background: #c026d3; flex: 17;">Tool Results</div>
-  <div class="context-seg" style="background: #db2777; flex: 1;" title="Your prompt">You</div>
+  <div class="context-seg" style="background: #134e4a; flex: 14;">System<br>Prompt</div>
+  <div class="context-seg" style="background: #0f766e; flex: 28;">Conversation History</div>
+  <div class="context-seg" style="background: #0d9488; flex: 14;">Memory</div>
+  <div class="context-seg" style="background: #14b8a6; flex: 14;">Retrieved<br>Docs / Files</div>
+  <div class="context-seg" style="background: #2dd4bf; flex: 12; color: #134e4a;">Tools</div>
+  <div class="context-seg" style="background: #5eead4; flex: 17; color: #134e4a;">Tool Results</div>
+  <div class="context-seg" style="background: #ef4444; flex: 1;" title="Your prompt">You</div>
 </div>
 
 <p class="dim" style="margin-top: 1rem; font-size: 0.95rem; text-align: right;">
-  &larr; that thin pink sliver on the right is what you actually typed.
+  That small red sliver on the right? <strong>That's what you actually typed.</strong>
 </p>
 
-<div class="callout" style="margin-top: 1.5rem; font-size: 1.05rem;">
-  Your message is maybe <strong>1%</strong> of what the model reads. The other 99% is&hellip; everything else.
+<div class="callout" style="margin-top: 1.5rem; display: flex; gap: 1.5rem; align-items: center;">
+  <img src="./iceberg.jpg" style="height: 140px; border-radius: 6px; flex-shrink: 0;" />
+  <div style="font-size: 1.05rem;">Your message is maybe <strong>1%</strong> of what the model reads &mdash; the tip of the iceberg. The other 99% is everything underneath.</div>
 </div>
 
 <!--
 The big realization for non-engineers: when you say "Hi" to Claude, the model doesn't see "Hi". It sees a giant document — system prompt, all your past messages, memory, attached files, tool results — and your "Hi" at the very end. That's why two identical prompts in two different chats give wildly different answers.
 -->
 
+---
+title: Same prompt, different result
 ---
 
 <div class="section-header">
@@ -143,6 +158,8 @@ The difference isn't the model getting smarter. It's everything else loaded into
 -->
 
 ---
+title: Too little context
+---
 
 <div class="section-header">
   <h1>Too little context &rarr; the robot answer</h1>
@@ -171,39 +188,38 @@ Schmid's example. The "AI as personal assistant" dream isn't blocked by intellig
 -->
 
 ---
+title: Too much context also hurts
+---
 
 <div class="section-header">
   <h1>&hellip;but too much also hurts</h1>
 </div>
 
-<p class="dim" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">More context isn't always better. Three findings from 2024–2025 research:</p>
+<p class="dim" style="margin-top: 0.5rem; margin-bottom: 1.25rem;">More context isn't always better.</p>
 
-<div class="item-row">
-  <div class="item-num">1</div>
+<div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; align-items: center;">
   <div>
-    <strong>Lost in the Middle</strong> <span class="dim">— Liu et al., Stanford</span><br>
-    <span class="compare-text">Performance is U-shaped. Models pay attention to the start and end, and miss things buried in the middle.</span>
+    <div class="item-row">
+      <div class="item-num">1</div>
+      <div><strong>Lost in the Middle.</strong> <span class="compare-text">Models pay attention to the start and end &mdash; and miss what's buried in between.</span></div>
+    </div>
+    <div class="item-row">
+      <div class="item-num">2</div>
+      <div><strong>Context Rot.</strong> <span class="compare-text">All 18 frontier models tested degrade as input grows.</span></div>
+    </div>
+    <div class="item-row">
+      <div class="item-num">3</div>
+      <div><strong>Wrong early &rarr; wrong forever.</strong> <span class="compare-text">39% drop on multi-turn tasks &mdash; bad early assumptions rarely get corrected.</span></div>
+    </div>
+    <div class="item-row">
+      <div class="item-num">4</div>
+      <div><strong>Bigger bills, faster limits.</strong> <span class="compare-text">Every turn re-sends the whole chat.</span></div>
+    </div>
   </div>
-</div>
-
-<div class="item-row">
-  <div class="item-num">2</div>
-  <div>
-    <strong>Context Rot</strong> <span class="dim">— Chroma, 18 frontier models tested</span><br>
-    <span class="compare-text"><em>All</em> models degrade as input grows — even when the window isn't full.</span>
+  <div style="text-align: center;">
+    <img src="./meme-spiderman.jpg" style="max-width: 100%; max-height: 200px; border-radius: 8px;" />
+    <p class="dim" style="font-size: 0.8rem; margin-top: 0.4rem;">your context, contradicting itself</p>
   </div>
-</div>
-
-<div class="item-row">
-  <div class="item-num">3</div>
-  <div>
-    <strong>The 39% multi-turn drop</strong> <span class="dim">— Microsoft &times; Salesforce, May 2025</span><br>
-    <span class="compare-text">"When models made wrong assumptions early, they rarely corrected themselves."</span>
-  </div>
-</div>
-
-<div class="callout" style="margin-top: 1.5rem; font-size: 1.05rem;">
-  Bloated history + stale memory + contradicting instructions <span style="color: #6b7280;">("follow A &rarr; ignore A, follow B")</span> = <span class="bad">recipe for hallucinations</span>.
 </div>
 
 <!--
@@ -211,106 +227,159 @@ Counter-intuitive part: if more context were always better, we'd just paste ever
 -->
 
 ---
+title: How Claude memory works
+---
 
 <div class="section-header">
-  <h1>Claude vs ChatGPT: how they remember</h1>
+  <h1>Claude memory: visible, editable, scoped</h1>
 </div>
 
-<p class="dim" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">Both auto-synthesize memory now. They just show you different amounts.</p>
+<p class="dim" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">Across Claude.ai chat, Cowork, and Code &mdash; same memory model.</p>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;">
   <div>
-    <p class="tag">ChatGPT memory</p>
-    <ul style="margin-top: 0.75rem; line-height: 1.8; color: #374151; font-size: 1rem; padding-left: 1.2rem;">
-      <li>Silent auto-injection</li>
-      <li>AI-decided summaries</li>
-      <li>Lower-maintenance</li>
-      <li>Less auditable</li>
-    </ul>
+    <p class="tag">Visible</p>
+    <p class="compare-text" style="margin-top: 0.6rem;">Memory writes show up as tool calls in the chat &mdash; you see exactly what Claude saved, when.</p>
   </div>
   <div>
-    <p class="tag">Claude memory</p>
-    <ul style="margin-top: 0.75rem; line-height: 1.8; color: #374151; font-size: 1rem; padding-left: 1.2rem;">
-      <li>Visible tool calls</li>
-      <li>User-editable</li>
-      <li>Transparent — you see what it remembers</li>
-      <li>Auto-synthesizes <span class="dim">(since March 2026)</span></li>
-    </ul>
+    <p class="tag">Editable</p>
+    <p class="compare-text" style="margin-top: 0.6rem;">View, edit, or delete anything in your memory anytime. The AI's idea of "important" isn't always yours.</p>
+  </div>
+  <div>
+    <p class="tag">Scoped</p>
+    <p class="compare-text" style="margin-top: 0.6rem;">Per-Project in chat. Per-folder via <code>CLAUDE.md</code> in Cowork/Code. Not one giant pile.</p>
   </div>
 </div>
 
 <div class="callout" style="margin-top: 1.5rem; font-size: 1rem;">
-  <strong>Tip:</strong> Use <span class="accent">Projects</span> on either platform &mdash; instructions + files scoped to the work, not your whole life.<br>
-  ChatGPT also has <span class="accent">project-only memory mode</span> to keep things contained.
+  <strong>Audit it.</strong> Open <span class="accent">/memory</span> in Code, or the memory tab in Claude.ai. Stale rules quietly poison every new chat.
 </div>
 
 <!--
-The old framing "Claude is fully manual, ChatGPT is automatic" is outdated as of March 2026. Both auto-sync now. The real difference is transparency — Claude shows you the memory tool calls; ChatGPT does it silently.
+Three properties: visible (you see the tool calls), editable (you can change them), scoped (per-project / per-CLAUDE.md). Auto-synthesizes since March 2026 — Claude decides when to write, but it's transparent. Audit monthly so old rules don't fight new ones.
 -->
 
 ---
+title: Build context once, reuse it
+---
 
 <div class="section-header">
-  <h1>5 habits to take home</h1>
+  <h1>Build context once. Reuse it everywhere.</h1>
 </div>
 
-<p class="dim" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">What to do differently Monday morning.</p>
+<p class="dim" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">Three patterns &mdash; pick the one that matches how you work.</p>
 
-<div class="item-row">
-  <div class="item-num">1</div>
-  <div><strong>One topic per chat.</strong> <span class="compare-text">Switching mid-chat is the #1 cause of bad output.</span></div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem;">
+  <div>
+    <p class="tag">Projects</p>
+    <p class="dim" style="font-size: 0.78rem; margin-top: 0.25rem;">Claude.ai chat</p>
+    <ul style="margin-top: 0.5rem; line-height: 1.6; color: #374151; font-size: 0.9rem; padding-left: 1.1rem;">
+      <li>System instructions per project</li>
+      <li>Files attached once, used everywhere inside</li>
+      <li>Memory scoped &mdash; not your whole life</li>
+    </ul>
+  </div>
+  <div>
+    <p class="tag">CLAUDE.md</p>
+    <p class="dim" style="font-size: 0.78rem; margin-top: 0.25rem;">Cowork &amp; Code</p>
+    <ul style="margin-top: 0.5rem; line-height: 1.6; color: #374151; font-size: 0.9rem; padding-left: 1.1rem;">
+      <li>Lives in your repo/folder &mdash; travels with the work</li>
+      <li>Version-controlled, shared with teammates</li>
+      <li>Loaded automatically every session</li>
+    </ul>
+  </div>
+  <div>
+    <p class="tag">Skills + Slash Commands</p>
+    <p class="dim" style="font-size: 0.78rem; margin-top: 0.25rem;">Cowork &amp; Code</p>
+    <ul style="margin-top: 0.5rem; line-height: 1.6; color: #374151; font-size: 0.9rem; padding-left: 1.1rem;">
+      <li>Package a repeat task into one command</li>
+      <li>Loads just the context it needs</li>
+    </ul>
+    <div style="margin-top: 0.4rem; font-family: 'Fira Code', monospace; font-size: 0.82rem; color: #0d9488;">
+      /remember<br>/learn-from<br>/wrap-up
+    </div>
+  </div>
 </div>
 
-<div class="item-row">
-  <div class="item-num">2</div>
-  <div><strong>Front-load what matters.</strong> <span class="compare-text">Most important info at the top or bottom — never buried in the middle.</span></div>
-</div>
-
-<div class="item-row">
-  <div class="item-num">3</div>
-  <div><strong>Prune memory monthly.</strong> <span class="compare-text">Stale or contradicting rules quietly poison every new chat.</span></div>
-</div>
-
-<div class="item-row">
-  <div class="item-num">4</div>
-  <div><strong>Use Projects for recurring work.</strong> <span class="compare-text">Per-project instructions + files beat re-typing context every time.</span></div>
-</div>
-
-<div class="item-row">
-  <div class="item-num">5</div>
-  <div><strong>Edit memory, don't trust it blindly.</strong> <span class="compare-text">Both ChatGPT and Claude let you view/edit/delete — actually do it.</span></div>
+<div class="callout" style="margin-top: 1.5rem; font-size: 0.98rem;">
+  The win: <span class="accent">write context once, Claude loads it for you.</span> No more re-typing "here's who I am, here's what we're working on" every session.
 </div>
 
 <!--
-This is the take-home. If you remember nothing else from this talk, remember: one topic per chat, and prune your memory. Those two alone will make AI feel sharper for everyone.
+Three patterns. Projects = chat with scope. CLAUDE.md = repo-level context that travels and is shared with teammates (we have these in OVOU repos already). Skills/slash commands = packaged workflows. The /remember /learn-from /wrap-up examples are real ones I use daily.
 -->
 
+---
+title: Try this week
+---
+
+<div class="section-header">
+  <h1>Try this week</h1>
+</div>
+
+<p class="dim" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">Three concrete things you can do this week. None take more than 15 minutes.</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;">
+  <div style="border-left: 3px solid #0d9488; padding-left: 1rem;">
+    <p class="tag">2 min</p>
+    <p style="font-weight: 700; font-size: 1.05rem; margin-top: 0.5rem; color: #111827;">Audit your memory</p>
+    <p class="compare-text" style="margin-top: 0.5rem; font-size: 0.92rem;">In Claude.ai, open the memory tab. In Claude Code, run <code style="background: #f3f4f6; padding: 0.05rem 0.3rem; border-radius: 3px; font-size: 0.85rem;">/memory</code>. Read what's there. <strong>Delete the stale stuff.</strong></p>
+  </div>
+  <div style="border-left: 3px solid #0d9488; padding-left: 1rem;">
+    <p class="tag">10 min</p>
+    <p style="font-weight: 700; font-size: 1.05rem; margin-top: 0.5rem; color: #111827;">Set up a CLAUDE.md</p>
+    <p class="compare-text" style="margin-top: 0.5rem; font-size: 0.92rem;">Drop a <code style="background: #f3f4f6; padding: 0.05rem 0.3rem; border-radius: 3px; font-size: 0.85rem;">CLAUDE.md</code> in your most-active repo or folder. Two paragraphs: what the project is, your conventions. Cowork/Code loads it automatically every session.</p>
+  </div>
+  <div style="border-left: 3px solid #0d9488; padding-left: 1rem;">
+    <p class="tag">15 min</p>
+    <p style="font-weight: 700; font-size: 1.05rem; margin-top: 0.5rem; color: #111827;">Write one slash command</p>
+    <p class="compare-text" style="margin-top: 0.5rem; font-size: 0.92rem;">Pick a task you do weekly &mdash; standup notes, MR review, design feedback. Package the prompt + context as a slash command. Run it next week with one keystroke.</p>
+  </div>
+</div>
+
+<div class="callout" style="margin-top: 1.5rem; font-size: 0.95rem;">
+  <strong>Speaker rules of thumb:</strong> one topic per chat &middot; front-load what matters &middot; prune memory monthly &middot; trust nothing the AI remembered without checking.
+</div>
+
+<!--
+The take-home. Three concrete actions, not advice. If they only do one, audit memory — costs nothing, fixes the slow bleed of stale rules. The CLAUDE.md is the most leveraged: it benefits the whole team because it's version-controlled.
+The five rules-of-thumb stay as the verbal closing — read them aloud as a pacing device.
+-->
+
+
+---
+title: Bonus — tell it what to do
 ---
 
 <div class="section-header">
   <h1>Bonus: tell it what to do</h1>
 </div>
 
-<p class="dim" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">"Don't think of a white bear." &mdash; Daniel Wegner, 1987</p>
-
-<p class="story" style="margin-bottom: 1rem;">
-  Tell people <em>not</em> to think of something, and they think of it more. Ski instructors don't say "don't fall" — they say <strong>"look where you want to go"</strong>.
-</p>
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+<div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; align-items: center; margin-top: 0.75rem;">
   <div>
-    <p class="compare-label-red">Negative prompt</p>
-    <p class="compare-text" style="font-family: 'Fira Code', monospace; font-size: 0.95rem;">"Don't use markdown.<br>Don't be too formal.<br>Don't list things."</p>
+    <p class="dim" style="margin-bottom: 0.4rem; font-size: 0.95rem;">"Don't think of a white bear." &mdash; Daniel Wegner, 1987</p>
+    <p class="story" style="font-size: 1rem; line-height: 1.65;">
+      Tell people <em>not</em> to think of something, and they think of it more.
+    </p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.75rem;">
+      <div>
+        <p class="compare-label-red">Negative</p>
+        <p class="compare-text" style="font-family: 'Fira Code', monospace; font-size: 0.85rem;">"Don't use markdown."</p>
+      </div>
+      <div>
+        <p class="compare-label-green">Positive</p>
+        <p class="compare-text" style="font-family: 'Fira Code', monospace; font-size: 0.85rem;">"Respond in flowing prose."</p>
+      </div>
+    </div>
+    <p class="callout" style="margin-top: 0.75rem; font-size: 0.9rem;">
+      Anthropic's guidance: <em>"Tell Claude what to do instead of what not to do."</em>
+    </p>
   </div>
-  <div>
-    <p class="compare-label-green">Positive prompt</p>
-    <p class="compare-text" style="font-family: 'Fira Code', monospace; font-size: 0.95rem;">"Respond in flowing prose paragraphs, in a casual conversational tone."</p>
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <img src="./polar-bear.jpg" style="max-height: 220px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+    <p class="dim" style="font-size: 0.8rem; margin-top: 0.4rem; text-align: center; max-width: 240px;">&uarr; you're thinking about it now, aren't you?</p>
   </div>
 </div>
-
-<p class="callout" style="margin-top: 1.75rem; font-size: 1rem;">
-  Anthropic's own guidance: <em>"Tell Claude what to do instead of what not to do."</em> Positive framing is more reliable.
-</p>
 
 <!--
 Honest framing: human ironic process and LLM negative prompting work via different mechanisms. Same outcome though — describe what you want, not what you don't want. Reza asked for this one specifically.
@@ -318,6 +387,7 @@ Honest framing: human ironic process and LLM negative prompting work via differe
 
 ---
 layout: center
+title: Closing
 ---
 
 <div style="max-width: 760px; margin: 0 auto; text-align: center;">
@@ -329,7 +399,7 @@ layout: center
   <p class="dim" style="margin-top: 1.5rem; font-size: 1.15rem; line-height: 1.7;">
     Curate it like you'd brief a new hire on Day 1.
   </p>
-  <p style="margin-top: 2.5rem; font-size: 1.2rem; font-weight: 600; color: #5856d6;">
+  <p style="margin-top: 2.5rem; font-size: 1.2rem; font-weight: 600; color: #0d9488;">
     Questions?
   </p>
 </div>

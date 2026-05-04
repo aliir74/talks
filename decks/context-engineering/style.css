@@ -1,5 +1,5 @@
 /* Context Engineering — clean, minimal, typography-first.
-   Mirrors second-brain deck aesthetic with Indigo accent (Apple HIG iOS for Dev/AI). */
+   Matches second-brain deck: teal accent (#0d9488), Inter, same component vocabulary. */
 
 .slidev-layout {
   background: #ffffff !important;
@@ -16,12 +16,12 @@
 
 /* Accent bar on left for section headers */
 .section-header {
-  border-left: 4px solid #5856d6;
+  border-left: 4px solid #0d9488;
   padding-left: 1rem;
 }
 
 /* Indigo accent for emphasis (Dev/AI) */
-.accent { color: #5856d6; }
+.accent { color: #0d9488; }
 .dim { color: #6b7280; }
 .warn { color: #d97706; }
 .bad { color: #dc2626; }
@@ -30,7 +30,7 @@
 .rule {
   width: 40px;
   height: 2px;
-  background: #5856d6;
+  background: #0d9488;
   border-radius: 1px;
   margin: 1rem 0;
 }
@@ -44,7 +44,7 @@
 
 /* Highlight callout */
 .callout {
-  border-left: 3px solid #5856d6;
+  border-left: 3px solid #0d9488;
   padding-left: 1.25rem;
   margin: 1.5rem 0;
   color: #111827;
@@ -62,7 +62,7 @@
 .item-num {
   min-width: 1.5rem;
   font-weight: 600;
-  color: #5856d6;
+  color: #0d9488;
   font-size: 1.1rem;
 }
 
@@ -80,7 +80,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #5856d6;
+  color: #0d9488;
   margin-bottom: 0.5rem;
 }
 .compare-text {
@@ -117,7 +117,7 @@
   line-height: 1.6;
   color: #111827;
   font-weight: 500;
-  border-left: 3px solid #5856d6;
+  border-left: 3px solid #0d9488;
   padding-left: 1.25rem;
   margin: 1rem 0;
 }
@@ -139,8 +139,8 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #5856d6;
-  background: #eef2ff;
+  color: #0d9488;
+  background: #ccfbf1;
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
 }
