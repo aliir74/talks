@@ -132,6 +132,18 @@
   background: #ffffff !important;
 }
 
+/* Hide Slidev's bottom toolbar by default, fade in on hover.
+   Slidev applies `!opacity-100` which forces the nav permanently visible —
+   override with higher specificity so we get the fade-on-hover UX. */
+body nav.flex.flex-col {
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+}
+body nav.flex.flex-col:hover,
+body nav.flex.flex-col:focus-within {
+  opacity: 1 !important;
+}
+
 /* Small label tag */
 .tag {
   display: inline-block;
