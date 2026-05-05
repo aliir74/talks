@@ -18,8 +18,9 @@ DECKS_DIR="$ROOT/decks"
 rm -rf "$DIST"
 mkdir -p "$DIST"
 
-# Collect (slug, title) pairs as we build, for the landing page.
+# Collect (slug, title) pairs as we build, for the landing page and decks.json.
 LANDING_ITEMS=""
+DECKS_JSON_ITEMS=""
 
 shopt -s nullglob
 for deck_path in "$DECKS_DIR"/*/; do
@@ -52,6 +53,14 @@ for deck_path in "$DECKS_DIR"/*/; do
 
   LANDING_ITEMS+="    <li><a href=\"/$slug/\"><span class=\"t\">$title</span><span class=\"s\">/$slug/</span></a></li>"$'\n'
 
+  # Escape title for JSON (backslashes and double-quotes; titles in slidev frontmatter
+  # rarely contain control chars, so this is sufficient).
+  json_title=$(printf '%s' "$title" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g')
+  if [ -n "$DECKS_JSON_ITEMS" ]; then
+    DECKS_JSON_ITEMS+=","$'\n'
+  fi
+  DECKS_JSON_ITEMS+="  { \"slug\": \"$slug\", \"title\": \"$json_title\" }"
+
   popd > /dev/null
 done
 
@@ -59,6 +68,13 @@ if [ -z "$LANDING_ITEMS" ]; then
   echo "ERROR: no decks built" >&2
   exit 1
 fi
+
+# Write decks.json — canonical deck index consumed by aliirani.com/talks.
+cat > "$DIST/decks.json" <<JSON
+[
+$DECKS_JSON_ITEMS
+]
+JSON
 
 cat > "$DIST/index.html" <<HTML
 <!doctype html>
