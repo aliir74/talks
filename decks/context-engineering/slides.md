@@ -402,8 +402,15 @@ title: Closing
   <p style="margin-top: 2.5rem; font-size: 1.2rem; font-weight: 600; color: #0d9488;">
     Questions?
   </p>
+  <div class="rule" style="margin: 1.75rem auto 1rem;"></div>
+  <p class="dim" style="font-size: 1rem; margin-bottom: 0.4rem;">Stay in touch &mdash;</p>
+  <p style="font-size: 1.05rem; line-height: 1.7;">
+    <a href="https://aliirani.com/?utm_source=talk&utm_medium=slides&utm_campaign=context-engineering" style="color: #0d9488; text-decoration: none; font-weight: 600;">aliirani.com</a>
+    <span class="dim" style="margin: 0 0.6rem;">&middot;</span>
+    <a href="https://www.linkedin.com/in/aliirani" style="color: #0d9488; text-decoration: none; font-weight: 600;">linkedin.com/in/aliirani</a>
+  </p>
 </div>
 
 <!--
-Land the closing. Pause. Open the floor. If someone asks "but how do I actually start a Project?" — that's the right kind of question. Walk them through it live if there's time.
+Land the closing. Pause. Open the floor. If someone asks "but how do I actually start a Project?" — that's the right kind of question. Walk them through it live if there's time. Mention the links casually if there's space.
 -->

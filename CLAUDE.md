@@ -67,8 +67,9 @@ If any deck fails to produce `dist/index.html`, the build aborts.
 3. Add `"pnpm": { "onlyBuiltDependencies": ["esbuild"] }` to the deck's `package.json`.
 4. **Per-slide `title:` frontmatter** — each `---` slide separator should declare its own `title:` (e.g., `---\ntitle: The problem\n---`). Without it, Slidev's slide navigator dropdown shows "undefined" for every slide — embedded `<h1>` tags inside divs are not auto-detected.
 5. **Title slide must include the presentation date** — append it to the byline, e.g., `Ali Irani · OVOU Spotlight · May 5, 2026`. Spelled-out month, no zero-padding. Update the date if the talk is re-delivered.
-6. Run `pnpm build` from the root to verify the deck slots into `dist/<slug>/` and appears in `dist/index.html`.
-7. Commit and push — Vercel rebuilds automatically.
+6. **Closing slide must include a tracked CTA** — add `aliirani.com` and `linkedin.com/in/aliirani` below the "Questions?" line. The `aliirani.com` link must carry per-deck UTM params so analytics can split traffic by talk: `https://aliirani.com/?utm_source=talk&utm_medium=slides&utm_campaign=<deck-slug>`. LinkedIn URL stays plain. Match the deck's existing accent color and `dim`/`rule` styling so the block reads as a footer, not a banner.
+7. Run `pnpm build` from the root to verify the deck slots into `dist/<slug>/` and appears in `dist/index.html`.
+8. Commit and push — Vercel rebuilds automatically.
 
 ## Conventions
 

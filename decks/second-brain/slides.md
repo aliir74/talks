@@ -321,8 +321,15 @@ layout: center
   <div class="rule" style="margin: 0 auto 1.5rem;"></div>
   <p style="font-size: 2.5rem; font-weight: 700; color: #111827;">Questions?</p>
   <p class="dim" style="margin-top: 1rem; font-size: 1.1rem;">Ali Irani · OVOU Spotlight</p>
+  <div class="rule" style="margin: 1.75rem auto 1rem;"></div>
+  <p class="dim" style="font-size: 1rem; margin-bottom: 0.4rem;">Stay in touch &mdash;</p>
+  <p style="font-size: 1.05rem; line-height: 1.7;">
+    <a href="https://aliirani.com/?utm_source=talk&utm_medium=slides&utm_campaign=second-brain" style="color: #0d9488; text-decoration: none; font-weight: 600;">aliirani.com</a>
+    <span class="dim" style="margin: 0 0.6rem;">&middot;</span>
+    <a href="https://www.linkedin.com/in/aliirani" style="color: #0d9488; text-decoration: none; font-weight: 600;">linkedin.com/in/aliirani</a>
+  </p>
 </div>
 
 <!--
-Open floor. Keep it light.
+Open floor. Keep it light. Mention the links casually if asked where to follow up.
 -->
