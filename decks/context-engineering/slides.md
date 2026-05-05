@@ -16,7 +16,7 @@ fonts:
     Context Engineering
   </h1>
   <p class="dim" style="margin-top: 0.5rem; font-size: 1.4rem;">Getting more out of AI</p>
-  <p class="dim" style="margin-top: 1.5rem; font-size: 1.1rem;">Ali Irani · OVOU Spotlight</p>
+  <p class="dim" style="margin-top: 1.5rem; font-size: 1.1rem;">Ali Irani · OVOU Spotlight · May 5, 2026</p>
 </div>
 
 <!--
@@ -402,8 +402,18 @@ title: Closing
   <p style="margin-top: 2.5rem; font-size: 1.2rem; font-weight: 600; color: #0d9488;">
     Questions?
   </p>
+  <div class="rule" style="margin: 1.75rem auto 1rem;"></div>
+  <p class="dim" style="font-size: 1rem; margin-bottom: 0.6rem;">Stay in touch</p>
+  <p style="font-size: 1.05rem; line-height: 1.7; display: inline-flex; align-items: center; gap: 1.5rem;">
+    <a href="https://aliirani.com/?utm_source=talk&utm_medium=slides&utm_campaign=context-engineering" style="color: #0d9488; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+      <carbon-globe style="font-size: 1.2rem;" /> aliirani.com
+    </a>
+    <a href="https://www.linkedin.com/in/aliirani" style="color: #0d9488; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+      <carbon-logo-linkedin style="font-size: 1.2rem;" /> aliirani
+    </a>
+  </p>
 </div>
 
 <!--
-Land the closing. Pause. Open the floor. If someone asks "but how do I actually start a Project?" — that's the right kind of question. Walk them through it live if there's time.
+Land the closing. Pause. Open the floor. If someone asks "but how do I actually start a Project?" — that's the right kind of question. Walk them through it live if there's time. Mention the links casually if there's space.
 -->
