@@ -322,7 +322,7 @@ layout: center
   <p style="font-size: 2.5rem; font-weight: 700; color: #111827;">Questions?</p>
   <p class="dim" style="margin-top: 1rem; font-size: 1.1rem;">Ali Irani · OVOU Spotlight</p>
   <div class="rule" style="margin: 1.75rem auto 1rem;"></div>
-  <p class="dim" style="font-size: 1rem; margin-bottom: 0.6rem;">Stay in touch &mdash;</p>
+  <p class="dim" style="font-size: 1rem; margin-bottom: 0.6rem;">Stay in touch</p>
   <p style="font-size: 1.05rem; line-height: 1.7; display: inline-flex; align-items: center; gap: 1.5rem;">
     <a href="https://aliirani.com/?utm_source=talk&utm_medium=slides&utm_campaign=second-brain" style="color: #0d9488; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
       <carbon-globe style="font-size: 1.2rem;" /> aliirani.com
