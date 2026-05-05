@@ -15,7 +15,7 @@ fonts:
   <h1 style="font-size: 3rem; margin-top: 0.75rem; margin-bottom: 0;">
     Taming Your<br>Digital Life
   </h1>
-  <p class="dim" style="margin-top: 1.5rem; font-size: 1.1rem;">Ali Irani · OVOU Spotlight</p>
+  <p class="dim" style="margin-top: 1.5rem; font-size: 1.1rem;">Ali Irani · OVOU Spotlight · April 28, 2026</p>
 </div>
 
 <!--

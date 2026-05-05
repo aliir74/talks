@@ -16,7 +16,7 @@ fonts:
     Context Engineering
   </h1>
   <p class="dim" style="margin-top: 0.5rem; font-size: 1.4rem;">Getting more out of AI</p>
-  <p class="dim" style="margin-top: 1.5rem; font-size: 1.1rem;">Ali Irani · OVOU Spotlight</p>
+  <p class="dim" style="margin-top: 1.5rem; font-size: 1.1rem;">Ali Irani · OVOU Spotlight · May 5, 2026</p>
 </div>
 
 <!--
