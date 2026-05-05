@@ -44,6 +44,15 @@ for deck_path in "$DECKS_DIR"/*/; do
   mkdir -p "$DIST/$slug"
   cp -R dist/. "$DIST/$slug/"
 
+  # Inject Vercel Web Analytics script into every built HTML page.
+  # The script is auto-served at /_vercel/insights/script.js on Vercel deployments
+  # with Analytics enabled; locally it 404s harmlessly. Doing this here avoids
+  # adding @vercel/analytics as a per-deck dependency.
+  while IFS= read -r html_file; do
+    sed -i.bak 's|</head>|<script defer src="/_vercel/insights/script.js"></script></head>|' "$html_file"
+    rm -f "$html_file.bak"
+  done < <(find "$DIST/$slug" -type f -name "*.html")
+
   # Extract title from slides.md frontmatter (first `title:` line in the YAML block).
   title=$(awk '
     /^---$/ { if (!in_fm) { in_fm=1; next } else { exit } }
@@ -83,6 +92,7 @@ cat > "$DIST/index.html" <<HTML
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Talks · Ali Irani</title>
+<script defer src="/_vercel/insights/script.js"></script>
 <style>
   :root { color-scheme: light; }
   * { box-sizing: border-box; }
