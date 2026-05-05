@@ -68,8 +68,9 @@ If any deck fails to produce `dist/index.html`, the build aborts.
 4. **Per-slide `title:` frontmatter** — each `---` slide separator should declare its own `title:` (e.g., `---\ntitle: The problem\n---`). Without it, Slidev's slide navigator dropdown shows "undefined" for every slide — embedded `<h1>` tags inside divs are not auto-detected.
 5. **Title slide must include the presentation date** — append it to the byline, e.g., `Ali Irani · OVOU Spotlight · May 5, 2026`. Spelled-out month, no zero-padding. Update the date if the talk is re-delivered.
 6. **Closing slide must include a tracked CTA** — add the personal site and LinkedIn below the "Questions?" line as **icon + handle**, not bare URLs: `<carbon-globe /> aliirani.com` and `<carbon-logo-linkedin /> aliirani`. The site link must carry per-deck UTM params so analytics can split traffic by talk: `https://aliirani.com/?utm_source=talk&utm_medium=slides&utm_campaign=<deck-slug>`. LinkedIn URL (`https://www.linkedin.com/in/aliirani`) stays plain — LinkedIn strips trackers anyway. Match the deck's existing accent color and `dim`/`rule` styling so the block reads as a footer, not a banner.
-7. Run `pnpm build` from the root to verify the deck slots into `dist/<slug>/` and appears in `dist/index.html`.
-8. Commit and push — Vercel rebuilds automatically.
+7. **Hide Slidev's bottom toolbar by default** — Slidev ships with `!opacity-100` on the bottom nav, which leaves the toolbar permanently visible during the talk. In the deck's `style.css`, add the override that sets `body nav.flex.flex-col { opacity: 0 }` with `:hover`/`:focus-within` fading it back to `1`, and `#slidev-goto-dialog { display: none }` (the goto dialog has no entry point once the toolbar is hidden, and Slidev parks it partly inside the viewport otherwise). Copy the block from `decks/context-engineering/style.css` — see commit `46e0aab` for the full reasoning.
+8. Run `pnpm build` from the root to verify the deck slots into `dist/<slug>/` and appears in `dist/index.html`.
+9. Commit and push — Vercel rebuilds automatically.
 
 ## Conventions
 
