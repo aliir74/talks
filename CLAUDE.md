@@ -69,8 +69,13 @@ If any deck fails to produce `dist/index.html`, the build aborts.
 5. **Title slide must include the presentation date** — append it to the byline, e.g., `Ali Irani · OVOU Spotlight · May 5, 2026`. Spelled-out month, no zero-padding. Update the date if the talk is re-delivered.
 6. **Closing slide must include a tracked CTA** — add the personal site and LinkedIn below the "Questions?" line as **icon + handle**, not bare URLs: `<carbon-globe /> aliirani.com` and `<carbon-logo-linkedin /> aliirani`. The site link must carry per-deck UTM params so analytics can split traffic by talk: `https://aliirani.com/?utm_source=talk&utm_medium=slides&utm_campaign=<deck-slug>`. LinkedIn URL (`https://www.linkedin.com/in/aliirani`) stays plain — LinkedIn strips trackers anyway. Match the deck's existing accent color and `dim`/`rule` styling so the block reads as a footer, not a banner.
 7. **Hide Slidev's bottom toolbar by default** — Slidev ships with `!opacity-100` on the bottom nav, which leaves the toolbar permanently visible during the talk. In the deck's `style.css`, add the override that sets `body nav.flex.flex-col { opacity: 0 }` with `:hover`/`:focus-within` fading it back to `1`, and `#slidev-goto-dialog { display: none }` (the goto dialog has no entry point once the toolbar is hidden, and Slidev parks it partly inside the viewport otherwise). Copy the block from `decks/context-engineering/style.css` — see commit `46e0aab` for the full reasoning.
-8. Run `pnpm build` from the root to verify the deck slots into `dist/<slug>/` and appears in `dist/index.html`.
-9. Commit and push — Vercel rebuilds automatically.
+8. **Set up the OG thumbnail for social shares.** Without `og:image`, LinkedIn / X / Slack render a generic placeholder when the deck URL is shared.
+   - Export the slide you want as the thumbnail (usually slide 1 or the thesis slide). Run `pnpm exec slidev export slides.md --format png --output /tmp/<slug>-export` (this needs `playwright-chromium` installed — `pnpm add -D playwright-chromium && pnpm exec playwright install chromium`; remove the dep again after exporting since it bloats Vercel installs).
+   - Copy the exported PNG to `decks/<slug>/public/og-image.png` so it ships at `https://talks.aliirani.com/<slug>/og-image.png`.
+   - Add a `seoMeta:` block to `slides.md` frontmatter with `ogTitle`, `ogDescription`, `ogImage`, `twitterCard: summary_large_image`, plus `twitterTitle/twitterDescription/twitterImage`. The `ogImage`/`twitterImage` URLs must be the full public URL — relative paths don't resolve for crawlers. Copy the pattern from `decks/context-engineering/slides.md`.
+   - After deploy, run the URL through [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/) so it re-fetches metadata (LinkedIn caches the old version aggressively).
+9. Run `pnpm build` from the root to verify the deck slots into `dist/<slug>/` and appears in `dist/index.html`.
+10. Commit and push — Vercel rebuilds automatically.
 
 ## Conventions
 
