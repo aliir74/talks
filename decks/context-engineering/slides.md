@@ -8,6 +8,14 @@ mdc: true
 fonts:
   sans: Inter
   mono: Fira Code
+seoMeta:
+  ogTitle: "Context Engineering — Getting more out of AI"
+  ogDescription: "Your AI is only as good as the context you give it. A 10-min talk on prompt → context engineering, what's actually in the context window, and the habits that make AI sharper."
+  ogImage: https://talks.aliirani.com/context-engineering/og-image.png
+  twitterTitle: "Context Engineering — Getting more out of AI"
+  twitterDescription: "Your AI is only as good as the context you give it."
+  twitterImage: https://talks.aliirani.com/context-engineering/og-image.png
+  twitterCard: summary_large_image
 ---
 
 <div class="flex flex-col justify-center h-full pl-2">
