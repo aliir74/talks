@@ -25,6 +25,26 @@ Calm. Casual. Today: why our AI chats sometimes feel magical and sometimes usele
 
 ---
 layout: center
+title: The thesis
+---
+
+<div style="max-width: 820px; margin: 0 auto; text-align: center;">
+  <div class="rule" style="margin: 0 auto 1.5rem;"></div>
+  <p style="font-size: 2rem; font-weight: 600; line-height: 1.5; color: #111827;">
+    Your AI is only as good as<br>
+    <span class="accent">the context you give it.</span>
+  </p>
+  <p class="dim" style="margin-top: 1.5rem; font-size: 1.1rem;">
+    The next 10 minutes prove this — and show you what to do about it.
+  </p>
+</div>
+
+<!--
+Front-load the punchline. Say it once, slowly, then pause. "That's the whole talk in one line. Everything else is proof and practice." Then transition into the problem we've all felt.
+-->
+
+---
+layout: center
 title: The problem
 ---
 
