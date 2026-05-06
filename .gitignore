@@ -5,3 +5,6 @@ decks/*/dist
 .DS_Store
 .vercel
 *.log
+
+# Local-only working files (feedback notes, recordings, draft material)
+decks/*/_local/
