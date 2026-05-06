@@ -8,6 +8,14 @@ mdc: true
 fonts:
   sans: Inter
   mono: Fira Code
+seoMeta:
+  ogTitle: "Taming Your Digital Life"
+  ogDescription: "How a simple folder structure plus AI made my second brain finally stick. From PARA paralysis to one inbox that actually works."
+  ogImage: https://talks.aliirani.com/second-brain/og-image.png
+  twitterTitle: "Taming Your Digital Life"
+  twitterDescription: "How a simple folder structure plus AI made my second brain finally stick."
+  twitterImage: https://talks.aliirani.com/second-brain/og-image.png
+  twitterCard: summary_large_image
 ---
 
 <div class="flex flex-col justify-center h-full pl-2">
